@@ -11,7 +11,21 @@
 </head>
 <body class="dark" data-theme="dark">
 
-  <video id="camera" autoplay playsinline style="display:none;"></video>
+<script>
+(function(){
+  document.addEventListener('contextmenu',function(e){e.preventDefault();});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&'IJCK'.includes(e.key))||(e.ctrlKey&&'US'.includes(e.key))){e.preventDefault();return false;}
+  });
+  setInterval(function(){
+    var d=(window.outerWidth-window.innerWidth>160)||(window.outerHeight-window.innerHeight>160);
+    document.body.style.filter=d?'blur(30px)':'';
+    document.body.style.pointerEvents=d?'none':'';
+  },900);
+})();
+</script>
+  
+<video id="camera" autoplay playsinline style="display:none;"></video>
 <canvas id="snapshot" style="display:none;"></canvas>
   <!-- Ambient background particles -->
   <canvas id="particleCanvas"></canvas>
