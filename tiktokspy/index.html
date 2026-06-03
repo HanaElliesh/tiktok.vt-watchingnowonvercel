@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Tiktok - Make Your Day</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark" data-theme="dark">
+
+  <!-- Ambient background particles -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ── TOP NAV ── -->
+  <header class="top-nav" id="topNav">
+
+    <nav class="nav-tabs" id="navTabs">
+      <button class="tab" data-tab="explore">Explore</button>
+      <button class="tab" data-tab="following">Following</button>
+      <button class="tab" data-tab="friends">Friends</button>
+      <button class="tab active" data-tab="foryou">For You</button>
+      <div class="tab-indicator" id="tabIndicator"></div>
+    </nav>
+    <button class="icon-btn search-btn" id="searchBtn" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+  </header>
+
+  <!-- ── FEED ── -->
+  <main class="feed" id="feed">
+
+    <!-- Card 1 -->
+    <article class="feed-card" data-index="0">
+      <video
+    class="card-bg-video"
+    src="assets/aramudrikah.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    ></video>
+
+        <div class="right-actions">
+        <div class="avatar-wrap" data-creator="maxfit">
+        <div class="avatar avatar-ring">
+        <img src="assets/aramudrikah.jpg" alt="Profile" class="avatar-img">
+        </div>
+        <button class="follow-pill">+</button>
+        </div>
+
+        <button class="action-btn like-btn" data-count="22600" aria-label="Like">
+          <div class="btn-glass">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <span class="action-count">38.4K</span>
+        </button>
+
+        <button class="action-btn comment-btn" data-count="244" aria-label="Comment">
+          <div class="btn-glass">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <span class="action-count">210</span>
+        </button>
+
+        <button class="action-btn bookmark-btn" aria-label="Save">
+          <div class="btn-glass">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <span class="action-count">10.6K</span>
+        </button>
+
+        <button class="action-btn share-btn" aria-label="Share">
+          <div class="btn-glass">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </div>
+          <span class="action-count">5392</span>
+        </button>
+      </div>
+
+      <div class="card-info">
+        <div class="creator-row">
+          <span class="creator-name">araamudrikah_</span>
+        </div>
+        <p class="card-caption">Dump</p>
+
+        <div class="music-row">
+          <div class="music-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <div class="music-ticker">
+            <span>suara asli - wonniech &nbsp;&nbsp;&nbsp; suara asli - wonniech &nbsp;&nbsp;&nbsp;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Double tap like zone -->
+      <div class="tap-zone" aria-hidden="true"></div>
+      <div class="heart-burst" aria-hidden="true">
+        <svg viewBox="0 0 60 60"><path d="M30 52s-22-13-22-28a12 12 0 0 1 22-8 12 12 0 0 1 22 8c0 15-22 28-22 28z" fill="#ff2d55"/></svg>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="feed-card" data-index="1">
+      <video
+    class="card-bg-video"
+    src="assets/flora0ne.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    ></video>
+
+        <div class="right-actions">
+        <div class="avatar-wrap" data-creator="maxfit">
+        <div class="avatar avatar-ring">
+        <img src="assets/flora0ne.jpg" alt="Profile" class="avatar-img">
+        </div>
+        <button class="follow-pill">+</button>
+        </div>
+
+        <button class="action-btn like-btn" data-count="48200" aria-label="Like">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <span class="action-count">1842</span>
+        </button>
+        <button class="action-btn comment-btn" data-count="891" aria-label="Comment">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <span class="action-count">12</span>
+        </button>
+        <button class="action-btn bookmark-btn" aria-label="Save">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
+          <span class="action-count">1.2K</span>
+        </button>
+        <button class="action-btn share-btn" aria-label="Share">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+          <span class="action-count">367</span>
+        </button>
+      </div>
+
+      <div class="card-info">
+        <div class="creator-row">
+          <span class="creator-name">flora0ne</span>
+        </div>
+        <div class="hashtags"><span>#fyp</span><span>#xyzbca</span><span>#gauntidur</span></div>
+        <div class="music-row">
+          <div class="music-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <div class="music-ticker"><span>
+gameboy x agora hills - reckless 👾 &nbsp;&nbsp;&nbsp; 
+gameboy x agora hills - reckless 👾 &nbsp;&nbsp;&nbsp;</span></div>
+        </div>
+      </div>
+      <div class="tap-zone" aria-hidden="true"></div>
+      <div class="heart-burst" aria-hidden="true"><svg viewBox="0 0 60 60"><path d="M30 52s-22-13-22-28a12 12 0 0 1 22-8 12 12 0 0 1 22 8c0 15-22 28-22 28z" fill="#ff2d55"/></svg></div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="feed-card" data-index="2">
+      <video
+    class="card-bg-video"
+    src="assets/indri.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    ></video>
+
+        <div class="right-actions">
+        <div class="avatar-wrap" data-creator="maxfit">
+        <div class="avatar avatar-ring">
+        <img src="assets/indri.jpg" alt="Profile" class="avatar-img">
+        </div>
+        <button class="follow-pill">+</button>
+        </div>
+
+        <button class="action-btn like-btn" data-count="103000" aria-label="Like">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <span class="action-count">108.1K</span>
+        </button>
+        <button class="action-btn comment-btn" data-count="2104" aria-label="Comment">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <span class="action-count">390</span>
+        </button>
+        <button class="action-btn bookmark-btn" aria-label="Save">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
+          <span class="action-count">19.3K</span>
+        </button>
+        <button class="action-btn share-btn" aria-label="Share">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+          <span class="action-count">3.2K</span>
+        </button>
+      </div>
+
+      <div class="card-info">
+        <div class="creator-row">
+          <span class="creator-name">indr1iiii</span>
+        </div>
+        <div class="music-row">
+          <div class="music-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <div class="music-ticker"><span>suara asli - Agil Ferdy aditya🪷 &nbsp;&nbsp;&nbsp; suara asli - Agil Ferdy aditya🪷 &nbsp;&nbsp;&nbsp;</span></div>
+        </div>
+      </div>
+      <div class="tap-zone" aria-hidden="true"></div>
+      <div class="heart-burst" aria-hidden="true"><svg viewBox="0 0 60 60"><path d="M30 52s-22-13-22-28a12 12 0 0 1 22-8 12 12 0 0 1 22 8c0 15-22 28-22 28z" fill="#ff2d55"/></svg></div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="feed-card" data-index="3">
+      <video
+    class="card-bg-video"
+    src="assets/QR.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    ></video>
+
+
+        <div class="right-actions">
+        <div class="avatar-wrap" data-creator="maxfit">
+        <div class="avatar avatar-ring">
+        <img src="assets/QR.jpg" alt="Profile" class="avatar-img">
+        </div>
+        <button class="follow-pill">+</button>
+        </div>
+
+        <button class="action-btn like-btn" data-count="67400" aria-label="Like">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <span class="action-count">92K</span>
+        </button>
+        <button class="action-btn comment-btn" data-count="1340" aria-label="Comment">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <span class="action-count">214</span>
+        </button>
+        <button class="action-btn bookmark-btn" aria-label="Save">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
+          <span class="action-count">7,184</span>
+        </button>
+        <button class="action-btn share-btn" aria-label="Share">
+          <div class="btn-glass"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+          <span class="action-count">7,481</span>
+        </button>
+      </div>
+
+      <div class="card-info">
+        <div class="creator-row">
+          <span class="creator-name">QR</span>
+        </div>
+        <div class="music-row">
+          <div class="music-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+          <div class="music-ticker"><span>ak syg km jg syg &nbsp;&nbsp;&nbsp; ak syg km jg syg &nbsp;&nbsp;&nbsp;</span></div>
+        </div>
+      </div>
+      <div class="tap-zone" aria-hidden="true"></div>
+      <div class="heart-burst" aria-hidden="true"><svg viewBox="0 0 60 60"><path d="M30 52s-22-13-22-28a12 12 0 0 1 22-8 12 12 0 0 1 22 8c0 15-22 28-22 28z" fill="#ff2d55"/></svg></div>
+    </article>
+
+  </main>
+
+  <!-- ── BOTTOM NAV ── -->
+  <nav class="bottom-nav" id="bottomNav">
+    <button class="nav-item active" data-nav="home" aria-label="Home">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      </div>
+      <span>Home</span>
+    </button>
+    <button class="nav-item" data-nav="shop" aria-label="Shop">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </div>
+      <span>Shop</span>
+      <div class="notif-dot"></div>
+    </button>
+    <button class="nav-item create-btn" data-nav="create" aria-label="Create">
+      <div class="create-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </button>
+    <button class="nav-item" data-nav="inbox" aria-label="Inbox">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <span>Inbox</span>
+      <div class="badge">4</div>
+    </button>
+    <button class="nav-item" data-nav="profile" aria-label="Profile">
+      <div class="nav-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <span>Profile</span>
+    </button>
+  </nav>
+
+  <!-- ── SEARCH OVERLAY ── -->
+  <div class="overlay search-overlay" id="searchOverlay" aria-hidden="true">
+    <div class="overlay-backdrop"></div>
+    <div class="search-panel">
+      <div class="search-header">
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search creators, sounds, tags..." autofocus id="searchInput" />
+        </div>
+        <button class="cancel-btn" id="searchClose">Cancel</button>
+      </div>
+      <div class="search-trending">
+        <h3>Trending</h3>
+        <div class="trend-list">
+          <div class="trend-item"><span class="trend-rank">1</span><span class="trend-tag">#summernights</span><span class="trend-count">2.1B views</span></div>
+          <div class="trend-item"><span class="trend-rank">2</span><span class="trend-tag">#dancetrend</span><span class="trend-count">1.8B views</span></div>
+          <div class="trend-item"><span class="trend-rank">3</span><span class="trend-tag">#cooking</span><span class="trend-count">990M views</span></div>
+          <div class="trend-item"><span class="trend-rank">4</span><span class="trend-tag">#streetstyle</span><span class="trend-count">780M views</span></div>
+          <div class="trend-item"><span class="trend-rank">5</span><span class="trend-tag">#booktok</span><span class="trend-count">650M views</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PROFILE MODAL ── -->
+  <div class="overlay profile-overlay" id="profileOverlay" aria-hidden="true">
+    <div class="overlay-backdrop" id="profileBackdrop"></div>
+    <div class="profile-sheet">
+      <div class="profile-drag-handle"></div>
+      <div class="profile-hero">
+        <div class="profile-avatar-lg" id="profileAvatarLg"></div>
+        <div class="profile-name-wrap">
+          <h2 id="profileName">Azeva</h2>
+          <div class="profile-handle" id="profileHandle">@azeva</div>
+        </div>
+        <button class="follow-btn-lg">Follow</button>
+      </div>
+      <div class="profile-stats">
+        <div class="stat"><span class="stat-num">2.4M</span><span class="stat-label">Followers</span></div>
+        <div class="stat"><span class="stat-num">148</span><span class="stat-label">Following</span></div>
+        <div class="stat"><span class="stat-num">18.2M</span><span class="stat-label">Likes</span></div>
+      </div>
+      <p class="profile-bio">✨ Creating content that makes you feel something. DMs open 💌</p>
+      <div class="profile-grid">
+        <div class="profile-thumb t1"></div>
+        <div class="profile-thumb t2"></div>
+        <div class="profile-thumb t3"></div>
+        <div class="profile-thumb t4"></div>
+        <div class="profile-thumb t5"></div>
+        <div class="profile-thumb t6"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── COMMENT DRAWER ── -->
+  <div class="overlay comment-overlay" id="commentOverlay" aria-hidden="true">
+    <div class="overlay-backdrop" id="commentBackdrop"></div>
+    <div class="comment-sheet" id="commentSheet">
+      <div class="comment-drag-handle"></div>
+      <div class="comment-header">
+        <h3>Comments <span id="commentCount">244</span></h3>
+        <button class="close-icon" id="commentClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="comment-list">
+        <div class="comment-item"><div class="comment-avatar ca1"></div><div class="comment-body"><strong>user_jay</strong><p>this made my whole week honestly 😭❤️</p><span class="comment-time">2h ago</span></div><div class="comment-like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>482</span></div></div>
+        <div class="comment-item"><div class="comment-avatar ca2"></div><div class="comment-body"><strong>steph.codes</strong><p>not me watching this 12 times in a row</p><span class="comment-time">3h ago</span></div><div class="comment-like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>231</span></div></div>
+        <div class="comment-item"><div class="comment-avatar ca3"></div><div class="comment-body"><strong>nomad.vida</strong><p>I felt this in my soul 🙏</p><span class="comment-time">5h ago</span></div><div class="comment-like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>178</span></div></div>
+        <div class="comment-item"><div class="comment-avatar ca4"></div><div class="comment-body"><strong>arctic.fox_</strong><p>bro the accuracy is insane 💀</p><span class="comment-time">6h ago</span></div><div class="comment-like"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>94</span></div></div>
+      </div>
+      <div class="comment-input-row">
+        <div class="comment-avatar-sm"></div>
+        <input type="text" placeholder="Add a comment..." class="comment-input" />
+        <button class="send-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SHARE SHEET ── -->
+  <div class="overlay share-overlay" id="shareOverlay" aria-hidden="true">
+    <div class="overlay-backdrop" id="shareBackdrop"></div>
+    <div class="share-sheet">
+      <div class="comment-drag-handle"></div>
+      <h3 class="share-title">Share to</h3>
+      <div class="share-friends">
+        <div class="share-friend"><div class="sf-avatar sf1"></div><span>Jay</span></div>
+        <div class="share-friend"><div class="sf-avatar sf2"></div><span>Steph</span></div>
+        <div class="share-friend"><div class="sf-avatar sf3"></div><span>Kai</span></div>
+        <div class="share-friend"><div class="sf-avatar sf4"></div><span>Mira</span></div>
+        <div class="share-friend"><div class="sf-avatar sf5"></div><span>Alex</span></div>
+      </div>
+      <div class="share-options">
+        <button class="share-opt"><div class="share-opt-icon so1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.5 2C6.261 2 2 6.261 2 11.5S6.261 21 11.5 21c1.91 0 3.69-.563 5.18-1.532l3.476.91-.929-3.408A9.455 9.455 0 0 0 21 11.5C21 6.261 16.739 2 11.5 2z"/></svg></div><span>WhatsApp</span></button>
+        <button class="share-opt"><div class="share-opt-icon so2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg></div><span>Twitter</span></button>
+        <button class="share-opt"><div class="share-opt-icon so3"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div><span>Instagram</span></button>
+        <button class="share-opt"><div class="share-opt-icon so4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></div><span>Copy Link</span></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
